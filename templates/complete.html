@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Complete
+{% endblock %}
+
+{% block main %}
+    <table class="center">
+        <tr>
+            <th>Stock</th>
+            <th>Shares</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+        <tr>
+            <td>{{quote["symbol"]}}</td>
+            <td>{{shares}}</td>
+            <td>{{quote["price"]}}</td>
+            <td>{{total}}</td>
+        </tr>
+    </table>
+    <p style="color:green;">Transaction complete</p>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <div>
+        <table class="center">
+            <tr>
+                <th>Stock</th>
+                <th>Shares</th>
+                <th>Current Price</th>
+                <th>Value</th>
+            </tr>
+            {% for row in portifolio %}
+            <tr>
+                <td>{{row.stock}}</td>
+                <td>{{row.shares}}</td>
+                <td>{{row.price | usd}}</td>
+                <td>{{(row.price * row.shares) | usd}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <table class="center">
+            <tr>
+                <th>Cash</th>
+                <th>Grand Total</th>
+            </tr>
+            <tr>
+                <td>{{user["cash"] | usd}}</td>
+                <td>{{user["total"] | usd}}</td>
+            </tr>
+        </table>
+    </div>
+{% endblock %}

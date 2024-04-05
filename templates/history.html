@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <div>
+        <table class="center">
+            <tr>
+                <th>Time</th>
+                <th>Transaction</th>
+                <th>Stock</th>
+                <th>Price</th>
+                <th>Shares</th>
+            </tr>
+            {% for row in transactions %}
+            <tr>
+                <td>{{row.time}}</td>
+                {%if row.shares > 0%}
+                <td>Buy</td>
+                {%else%}
+                <td>Sell</td>
+                {%endif%}
+                <td>{{row.stock}}</td>
+                <td>U${{row.price}}</td>
+                <td>{{row.shares}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
